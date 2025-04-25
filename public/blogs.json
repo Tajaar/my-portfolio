@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "My First Blog Post",
+      "content": "This is my very first blog post. I'm excited to share it with you!",
+      "author": "John Doe",
+      "date": "2025-04-25"
+    },
+    {
+      "id": 2,
+      "title": "The Journey of Learning React",
+      "content": "Learning React has been an exciting journey. Here's my experience...",
+      "author": "Jane Smith",
+      "date": "2025-04-22"
+    },
+    {
+      "id": 3,
+      "title": "Understanding JavaScript Closures",
+      "content": "JavaScript closures are a powerful concept in JS. Let's explore them...",
+      "author": "Alice Cooper",
+      "date": "2025-04-20"
+    }
+  ]
+  
