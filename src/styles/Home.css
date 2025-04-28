@@ -1,0 +1,142 @@
+/* Home.css */
+
+/* Overall layout */
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  padding: 0 3rem;
+  position: relative;
+}
+
+/* Left side (logo and name) */
+.left-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.logo-placeholder {
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #4A4A4A;
+  animation: fadeIn 2s ease-out;
+}
+
+.name-container {
+  animation: nameAnimation 3s forwards;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #4A4A4A;
+  opacity: 0;
+}
+
+/* Animation for name */
+@keyframes nameAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Right side (About Me Section & Floating Buttons) */
+.right-side {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* About Me Card */
+.about-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.about-card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.about-card p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Floating Buttons */
+.floating-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+}
+
+.floating-button {
+  animation: fadeIn 2s ease-out forwards;
+  transition: transform 0.3s ease-in-out;
+}
+
+.floating-button:hover {
+  transform: scale(1.2);
+}
+
+/* Button Specific Styles */
+.button-projects {
+  animation-delay: 0.1s;
+}
+
+.button-blogs {
+  animation-delay: 0.2s;
+}
+
+.button-about {
+  animation-delay: 0.3s;
+}
+
+.button-contact {
+  animation-delay: 0.4s;
+}
+
+/* Fade-in animation for elements */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

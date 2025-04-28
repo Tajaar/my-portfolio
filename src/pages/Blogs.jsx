@@ -10,9 +10,24 @@ const extractImageFromContent = (htmlContent) => {
 
 // Extract only the first <p><em>...</em></p> as subtitle
 const extractSubtitle = (htmlContent) => {
-  const match = htmlContent.match(/<p><em>(.*?)<\/em><\/p>/);
-  return match ? match[1].trim() : '';
+  // Try to find <p><em>...</em></p> first
+  const emMatch = htmlContent.match(/<p><em>(.*?)<\/em><\/p>/);
+  if (emMatch) {
+    return emMatch[1].trim();
+  }
+
+  // If not found, try to find first normal <p>...</p>
+  const pMatch = htmlContent.match(/<p>(.*?)<\/p>/);
+  if (pMatch) {
+    // Remove any inner HTML tags (if present)
+    const textOnly = pMatch[1].replace(/<[^>]+>/g, '');
+    return textOnly.trim();
+  }
+
+  // If nothing found, return empty string
+  return '';
 };
+
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
