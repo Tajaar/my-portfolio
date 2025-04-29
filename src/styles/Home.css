@@ -4,11 +4,11 @@
 .home-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
-  background-color: #f4f4f4;
-  padding: 0 3rem;
+  padding: 3rem;
   position: relative;
+  color: rgb(112, 41, 99); /* Byzantium for text */
 }
 
 /* Left side (logo and name) */
@@ -16,37 +16,38 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
 }
-
-.logo-placeholder {
-  margin-bottom: 20px;
-}
-
-.logo {
-  font-size: 4rem;
-  font-weight: bold;
-  color: #4A4A4A;
-  animation: fadeIn 2s ease-out;
-}
-
 .name-container {
-  animation: nameAnimation 3s forwards;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 20px;
+  justify-content: flex-start;
 }
 
 .name {
   font-size: 4rem;
   font-weight: 700;
-  color: #4A4A4A;
-  opacity: 0;
+  color: rgb(102, 51, 153); /* Deep Amethyst for name text */
+  display: flex; /* Ensure letters are aligned */
+  flex-wrap: wrap;
+  opacity: 1; /* Set the opacity of the name to 1 so it's visible */
 }
 
-/* Animation for name */
-@keyframes nameAnimation {
+/* Animation for each letter */
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: letterAnimation 1s ease-out forwards;
+  margin-right: 5px;
+}
+
+@keyframes letterAnimation {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(50px);
   }
   100% {
     opacity: 1;
@@ -60,14 +61,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: center;
-}
-
-/* About Me Card */
-.about-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .about-card {
@@ -84,12 +77,12 @@
 .about-card h2 {
   font-size: 1.75rem;
   margin-bottom: 10px;
-  color: #333;
+  color: rgb(102, 51, 153); /* Deep Amethyst for sub-headings */
 }
 
 .about-card p {
   font-size: 1.1rem;
-  color: #555;
+  color: rgb(38, 38, 56); /* Shadow Gray */
   margin-bottom: 8px;
 }
 
@@ -101,15 +94,6 @@
   position: fixed;
   right: 3rem;
   bottom: 3rem;
-}
-
-.floating-button {
-  animation: fadeIn 2s ease-out forwards;
-  transition: transform 0.3s ease-in-out;
-}
-
-.floating-button:hover {
-  transform: scale(1.2);
 }
 
 /* Button Specific Styles */

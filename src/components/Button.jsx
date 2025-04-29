@@ -41,7 +41,7 @@ const StyledWrapper = styled.div`
     right: 0;
     left: 0;
     height: calc(50% - 5px);
-    border: 1px solid #7D8082;
+    border: 1px solid rgb(97, 47, 107);
     transition: all .15s ease;
   }
 
@@ -114,7 +114,7 @@ const StyledWrapper = styled.div`
     bottom: -1px;
     left: -8px;
     width: 0;
-    background-color: #ff4655;
+    background-color: rgb(143, 0, 255);
     transform: skew(-15deg);
     transition: all .2s ease;
   }
