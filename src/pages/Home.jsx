@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaFolderOpen, FaBlog, FaUserAlt, FaEnvelopeOpen } from 'react-icons/fa';
+import { FaFolderOpen, FaBlog, FaUserAlt } from 'react-icons/fa';
 import Button from '../components/Button';
-import Background from '../components/BackgroundAnimation';  // Import Background component
+import Background from '../components/BackgroundAnimation';
 import '../styles/Home.css';
+import '../styles/HeroName.css'; // Import the animation styles
 
 const Home = () => {
   const navigate = useNavigate();
@@ -12,36 +13,26 @@ const Home = () => {
     { label: 'Projects', to: '/projects', icon: <FaFolderOpen />, positionClass: 'button-projects' },
     { label: 'Blogs', to: '/blog', icon: <FaBlog />, positionClass: 'button-blogs' },
     { label: 'About', to: '/about', icon: <FaUserAlt />, positionClass: 'button-about' },
-    { label: 'Contact', to: '/contact', icon: <FaEnvelopeOpen />, positionClass: 'button-contact' },
   ];
-
-  const name = 'TARUN';  // Replace with your name
 
   return (
     <>
       <Background />
-      <div className="home-container relative z-10">
+      <div className="home-container">
         <div className="left-side">
           <div className="name-container">
-            <h1 className="name">
-              {name.split('').map((letter, index) => (
-                <span key={index} className={`letter`} style={{ animationDelay: `${index * 0.1}s` }}>
-                  {letter}
-                </span>
-              ))}
-            </h1>
+            <span className="key">T</span>
+            <span className="key">A</span>
+            <span className="key">R</span>
+            <span className="key">U</span>
+            <span className="key">N</span>
           </div>
         </div>
 
         <div className="right-side">
-          <div className="about-card">
-            <h2>About Me</h2>
-            <p><strong>Languages Known:</strong> Python, Java, SQL</p>
-            <p><strong>Education:</strong> Bachelor's in Computer Science</p>
-            <p><strong>Certifications:</strong> Data Science, AI/ML, etc.</p>
-            <p><strong>Skills:</strong> AI, Machine Learning, Data Analysis</p>
+          <div class="intro-paragraph">
+              <p>Welcome to my portfolio! I'm Tarun, a passionate Data Scientist and AI enthusiast. Explore my work and projects, and feel free to get in touch.</p>
           </div>
-
           <div className="floating-buttons">
             {buttons.map((btn, index) => (
               <div key={index} className={`floating-button ${btn.positionClass}`}>

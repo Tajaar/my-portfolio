@@ -25,11 +25,11 @@ const StyledWrapper = styled.div`
     color: #0f1923;
     cursor: pointer;
     position: relative;
-    padding: 8px;
+    padding: 16px 32px;  /* Increased padding for larger buttons */
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;  /* Increased font size for larger text */
     transition: all .15s ease;
   }
 
@@ -77,7 +77,7 @@ const StyledWrapper = styled.div`
   .button_lg {
     position: relative;
     display: block;
-    padding: 10px 20px;
+    padding: 20px 40px;  /* Increased padding for larger buttons */
     color: #fff;
     background-color: #0f1923;
     overflow: hidden;
@@ -121,6 +121,7 @@ const StyledWrapper = styled.div`
 
   .button_text {
     position: relative;
+    font-size: 22px;  /* Larger font size for button text */
   }
 
   .button:hover {
