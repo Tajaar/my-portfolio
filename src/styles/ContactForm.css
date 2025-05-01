@@ -1,20 +1,22 @@
 
 /* src/styles/ContactForm.css */
 .contact-form {
-  background-color: #f2f2f2;
+  background-color: #0e1320; 
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
   margin: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2)
 }
 
 .contact-form .heading {
   font-size: 24px;
-  color: black;
+  color: white;
   margin-bottom: 12px;
   font-weight: bold;
   display: block;
   text-align: center;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .contact-form .form-grid {
@@ -24,7 +26,7 @@
 }
 
 .contact-form label {
-  color: black;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   font-weight: 500;
@@ -35,12 +37,13 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
+  background-color: #1d1f2a;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  box-shadow: 0 0 5px #ff6384;
+  box-shadow: 0 0 5px #6A0DAD;
   transform: scale(1.03);
   transition: transform 0.2s ease-in-out;
 }
@@ -51,7 +54,7 @@
 }
 
 .contact-form button[type="submit"] {
-  background-color: #ff6384;
+  background-color: #6A0DAD;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -59,8 +62,10 @@
   font-size: 16px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .contact-form button[type="submit"]:hover {
   transform: scale(1.05);
+  background-color: #8e2de2;
 }

@@ -44,16 +44,17 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     height: 430px;
-    margin: 1rem;
+    margin: 1rem auto;
   }
 
   .glow {
     position: absolute;
     width: 360px;
-    height: 470px;
-    border-radius: 20px;
+    height: 360px;
+    border-radius: 50%;
     z-index: 0;
     opacity: 0;
     background: linear-gradient(45deg, #e81cff 0%, #40c9ff 100%);
@@ -78,14 +79,14 @@ const StyledWrapper = styled.div`
 
   .card {
     position: relative;
-    background-color: #ffffff;
+    background-color: #0e0b1f;
     border-radius: 16px;
     overflow: hidden;
-    width: 320px;
-    height: 430px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     z-index: 1;
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -118,17 +119,18 @@ const StyledWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
+    color: white;
   }
 
   .title {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: #333;
+    font-weight: 700;
+    color: #c084fc;
   }
 
   .subtitle {
     font-size: 0.9rem;
-    color: #666;
+    color: #e0e0e0;
     margin-top: 8px;
   }
 
@@ -138,7 +140,7 @@ const StyledWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
-    color: #777;
+    color: #a1a1aa;
   }
 
   .visit-button {
@@ -156,6 +158,17 @@ const StyledWrapper = styled.div`
   .visit-button:hover {
     background: linear-gradient(45deg, #2575fc 0%, #6a11cb 100%);
     transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    .card-wrapper {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card {
+      height: auto;
+    }
   }
 `;
 

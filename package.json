@@ -2,6 +2,10 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
+  "projects": [
+      "Lung_Nodule_Detection_FRCNN_FPR",
+      "Rag-chat"
+    ],
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.13.4",
     "@splinetool/react-spline": "^4.0.0",
@@ -69,5 +73,5 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3"
-  }
+  } 
 }

@@ -29,17 +29,6 @@ const Home = () => {
             <span className="key">N</span>
           </div>
         </div>
-        <div class="content">
-              
-              <div class="marquee">
-                <div class="marquee_blur" aria-hidden="true">
-                  <p class="marquee_text">Lorem ipsum dolor sit amet!</p>
-                </div>
-                <div class="marquee_clear">
-                  <p class="marquee_text">Lorem ipsum dolor sit amet!</p>
-                </div>
-              </div>
-        </div>
         <div className="right-side">
           <div className="button-row">
             {buttons.map((btn, index) => (
