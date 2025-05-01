@@ -1,56 +1,121 @@
 /* Home.css */
 
+/* Home Container */
 .home-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column; /* Stack the sections vertically */
+  justify-content: flex-start;
+  align-items: center;
   height: 100vh;
   padding: 3rem;
-  position: relative;
   color: rgb(112, 41, 99);
+  min-height: 100vh;
 }
 
+/* Left Side */
 .left-side {
   flex: 1;
   display: flex;
-  justify-content: center;  /* Horizontally center */
-  align-items: center;      /* Vertically center */
-  height: 100%;             /* Ensure it takes full height */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   position: relative;
+  text-align: center; /* Center content in the left-side */
 }
 
+/* Right Side */
 .right-side {
   flex: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  height: 100%; /* Full height */
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   padding: 2rem;
+  text-align: center; /* Center content in the right-side */
 }
+
+/* Low Container (for scroll animation) */
+.low-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+  padding: 2rem;
+  width: 100%; /* Ensure it stretches across the entire width */
+  text-align: center; /* Center text */
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  animation: fadeIn 1.2s ease-in;
+}
+
+.scroll-arrow-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: scrollMove 2s infinite ease-in-out;
+}
+
+.arrow-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.scroll-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6); /* Light text */
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes scrollMove {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 /* Introductory paragraph */
 .intro-paragraph {
   font-size: 1.5rem;
-  color: rgb(102, 51, 153); /* Matching the purple theme */
+  color: white; /* Matching the purple theme */
   margin-bottom: 2rem;
-  text-align: right; /* Align text to the right */
+  text-align: center; /* Align text to the right */
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
 }
 
-.floating-buttons {
+/* Button styles */
+.button-row {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  position: fixed;
-  text-align: center;
-  right: 2rem;
-  top: 69%;
-  transform: translateY(-50%);
+  justify-content: center; /* or 'space-around', 'space-between' */
+  align-items: center;
+  gap: 2rem; /* spacing between buttons */
+  margin-top: 2rem;
+  flex-wrap: wrap; /* for responsiveness */
 }
 
 .button-projects { animation-delay: 0.1s; }
 .button-blogs    { animation-delay: 0.2s; }
-.button-contact  { animation-delay: 0.4s; }
 .button-about  { animation-delay: 0.4s; }
