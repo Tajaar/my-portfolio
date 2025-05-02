@@ -49,11 +49,17 @@ const Blogs = () => {
 
   return (
     <>
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0e1320]">
+          <Loader />
+        </div>
+      )}
+
+
       <Navbar />
       <div className="relative z-0">
         <Background />
         <div className="relative min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-          
           {/* Title & Description */}
           <div className="text-center px-4 pt-8 pb-12">
             <h1 className="text-4xl sm:text-5xl font-bold text-purple-400 drop-shadow-[0_0_8px_#9D00FF]">
@@ -65,13 +71,9 @@ const Blogs = () => {
           </div>
 
           {/* Blog Grid */}
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {loading ? (
-              <Loader /> // Display the custom loader here
-            ) : error ? (
-              <p className="text-center text-lg text-red-600">{error}</p>
-            ) : (
-              blogs.map((blog, index) => (
+          {!error && (
+            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogs.map((blog, index) => (
                 <BlogCard
                   key={index}
                   title={blog.title}
@@ -80,9 +82,13 @@ const Blogs = () => {
                   image={blog.image}
                   url={blog.url}
                 />
-              ))
-            )}
-          </div>
+              ))}
+            </div>
+          )}
+
+          {error && (
+            <p className="text-center text-lg text-red-600">{error}</p>
+          )}
         </div>
       </div>
       <Footer />
