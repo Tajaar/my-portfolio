@@ -59,3 +59,15 @@
 .key:nth-child(6) { animation: pressDown6 3.5s infinite; }
 .key:nth-child(7) { animation: pressDown7 2.2s infinite; }
 .key:nth-child(8) { animation: pressDown8 3.2s infinite; }
+
+@media screen and (max-width: 768px) {
+  .key {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .key {
+    font-size: 3rem;
+  }
+}
