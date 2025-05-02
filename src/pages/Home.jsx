@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { FaFolderOpen, FaBlog, FaUserAlt } from 'react-icons/fa';
 import Button from '../components/Button';
 import Background from '../components/BackgroundAnimation';
-import '../styles/Home.css';
 import Footer from '../components/Footer';
-import '../styles/HeroName.css'; // Import the animation styles
+import '../styles/Home.css';
+import '../styles/HeroName.css';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ const Home = () => {
             <span className="key">N</span>
           </div>
         </div>
+
         <div className="right-side">
           <div className="button-row">
             {buttons.map((btn, index) => (
@@ -36,6 +37,7 @@ const Home = () => {
             ))}
           </div>
         </div>
+
         <div className="low-container">
           <div className="scroll-indicator">
             <div className="scroll-arrow-text">
@@ -48,10 +50,7 @@ const Home = () => {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M12 16L6 10H18L12 16Z"
-                    fill="currentColor"
-                  />
+                  <path d="M12 16L6 10H18L12 16Z" fill="currentColor" />
                 </svg>
               </div>
               <span className="scroll-text">Scroll To Contact ME!</span>

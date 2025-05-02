@@ -24,7 +24,7 @@ function Footer() {
                   </div>
                   <div className="back">
                     <div className="border"></div>
-                    <p>GitHub</p>
+                    <p>you know GitHub. Right?</p>
                   </div>
                 </div>
               </a>
@@ -36,7 +36,7 @@ function Footer() {
                   </div>
                   <div className="back">
                     <div className="border"></div>
-                    <p>LinkedIn</p>
+                    <p>LinkedIn. duh....</p>
                   </div>
                 </div>
               </a>
@@ -60,7 +60,7 @@ function Footer() {
                   </div>
                   <div className="back">
                     <div className="border"></div>
-                    <p>Instagram</p>
+                    <p>I don't use this much</p>
                   </div>
                 </div>
               </a>

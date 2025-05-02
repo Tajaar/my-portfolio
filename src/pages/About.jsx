@@ -9,32 +9,41 @@ import Background from '../components/BackgroundAnimation';
 const education = [
   {
     title: 'B.Tech in AI & Data Science',
-    institution: 'XYZ University',
+    institution: 'Meenakshi Sundararajan Engineering College',
     duration: '2021 – 2025',
-    description: 'Specialized in machine learning, NLP, and real-world AI projects.'
+    description: 'Specialized in machine learning, NLP, and real-world AI and .'
   },
-  {
-    title: 'Higher Secondary',
-    institution: 'ABC School',
-    duration: '2019 – 2021',
-    description: 'Top performer with strong foundation in mathematics and computer science.'
-  }
+
 ];
 
 const certifications = [
   {
-    title: 'Deep Learning Specialization',
+    title: 'IBM Data Analyst Professional Certificate',
     platform: 'Coursera',
-    link: '#'
+    link: 'https://www.coursera.org/account/accomplishments/professional-cert/BB3EQDHCZT4J'
   },
   {
-    title: 'Data Analyst with Python',
-    platform: 'DataCamp',
-    link: '#'
-  }
+    title: 'Data Analysis with Python',
+    platform: 'Coursera',
+    link: 'https://www.coursera.org/account/accomplishments/verify/5BFZRD9EYZXE'
+  },
+  {
+    title: 'Digital Marketing',
+    platform: 'Udemy',
+    link: 'https://www.udemy.com/certificate/UC-cb3dcb8a-1a38-489b-ac07-325843406669/'
+  },
+  {
+    title: 'Machine Learning to Generative AI',
+    platform: 'IBM SkillsBuild',
+    link: 'https://skills.yourlearning.ibm.com/certificate/share/7d4bb86529ewogICJsZWFybmVyQ05VTSIgOiAiMjM1NjgyNlJFRyIsCiAgIm9iamVjdFR5cGUiIDogIkFDVElWSVRZIiwKICAib2JqZWN0SWQiIDogIlBMQU4tM0U5QUI0MERCMDUxIgp9e395cb0761-10'
+  },
+  {
+    title: 'Python Scripting',
+    platform: 'Edureka',
+    link: '#'}
 ];
 
-const skills = ['Python', 'TensorFlow', 'Pandas', 'SQL', 'NLP', 'Power BI', 'GitHub', 'Docker'];
+const skills = ['Python','Data Analysis','TensorFlow', 'Pandas', 'SQL', 'NLP', 'Power BI', 'GitHub', 'Docker','Selenium'];
 
 const About = () => {
   return (
@@ -47,12 +56,12 @@ const About = () => {
           <img src="/profile.jpg" alt="Tarun" className="w-full h-full object-cover" />
         </motion.div>
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold text-purple-400 mb-4">Hi, I'm Tarun</h1>
+          <h1 className="text-4xl font-bold text-purple-400 mb-5">Hi, I'm Tarun <span className='text-white '>(You probably know that by now)</span> </h1>
           <p className="text-lg text-gray-300 mb-6">
-            An AI & Data Science enthusiast driven by curiosity and the desire to build impactful, intelligent systems that automate and inspire.
+          An AI and Data Science enthusiast driven by curiosity and a passion for building intelligent systems that automate, optimize, and inspire. With a strong foundation in machine learning, data analytics, and automation, I strive to create solutions that not only solve problems but also add meaningful value. Whether it’s uncovering insights from complex data or integrating AI into everyday tasks, I’m committed to leveraging technology to make a lasting impact.
           </p>
           <a
-            href="/resume.pdf"
+            href="/Tarun_Resume.pdf"
             download
             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-700 hover:bg-purple-800 rounded-full text-white font-semibold transition transform hover:scale-105 shadow-lg"
           >

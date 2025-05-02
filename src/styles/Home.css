@@ -119,3 +119,47 @@
 .button-projects { animation-delay: 0.1s; }
 .button-blogs    { animation-delay: 0.2s; }
 .button-about  { animation-delay: 0.4s; }
+
+/* Qoute styles */
+.quote-container {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  animation: fadeInUp 2s ease forwards;
+  color: #e0e0ff;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+  max-width: 500px;
+}
+
+.quote-line {
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeLine 0.6s ease forwards;
+}
+
+.quote-line:nth-child(1) { animation-delay: 0.2s; }
+.quote-line:nth-child(2) { animation-delay: 0.4s; }
+.quote-line:nth-child(3) { animation-delay: 0.6s; }
+.quote-line:nth-child(4) { animation-delay: 0.8s; }
+.quote-line:nth-child(5) { animation-delay: 1s; }
+.quote-line:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeLine {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

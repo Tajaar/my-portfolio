@@ -1,4 +1,3 @@
-// src/components/ContactForm.jsx
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import '../styles/ContactForm.css';
@@ -10,6 +9,10 @@ function ContactForm() {
     message: ''
   });
 
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -20,22 +23,42 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess('');
+
+    const { name, email, message } = formData;
+    const time = new Date().toLocaleString();
+
+    // Accessing environment variables for EmailJS keys
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const userId = process.env.REACT_APP_EMAILJS_USER_ID;
+
+    const templateParams = {
+      title: "Contact Form Submission",
+      name: name,
+      time: time,
+      message: message,
+      email: email
+    };
 
     emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID', 
-        'YOUR_TEMPLATE_ID', 
-        e.target, 
-        'YOUR_USER_ID'
-      )
+      .send(serviceId, templateId, templateParams, userId)
       .then(
         (result) => {
-          console.log('Message sent: ', result.text);
-          alert('Message sent successfully!');
+          setLoading(false);
+          setSuccess('Message sent successfully!');
+          setFormData({
+            name: '',
+            email: '',
+            message: ''
+          });
         },
         (error) => {
-          console.log('Error: ', error.text);
-          alert('Failed to send message. Please try again later.');
+          setLoading(false);
+          setError('Failed to send message. Please try again later.');
+          console.error(error.text);
         }
       );
   };
@@ -76,11 +99,15 @@ function ContactForm() {
             required
           ></textarea>
         </label>
-        <button type="submit">Send</button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Sending...' : 'Send'}
+        </button>
       </form>
+
+      {success && <p className="success">{success}</p>}
+      {error && <p className="error">{error}</p>}
     </div>
   );
 }
 
 export default ContactForm;
-

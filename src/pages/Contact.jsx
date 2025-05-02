@@ -1,73 +1,91 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+const ContactForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess('');
+
+    const formData = {
+      title: "Contact Form Submission",
+      name: name,
+      time: new Date().toLocaleString(),
+      message: message,
+      email: email
+    };
+
+    console.log(formData); // Debugging step: Check the form data before sending
+
+    // Accessing environment variables for EmailJS keys
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const userId = process.env.REACT_APP_EMAILJS_USER_ID;
 
     emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        e.target,
-        'YOUR_USER_ID'
-      )
+      .send(serviceId, templateId, formData, userId)
       .then(
         (result) => {
-          alert('Message Sent!');
+          setLoading(false);
+          setSuccess('Message sent successfully!');
+          setName('');
+          setEmail('');
+          setMessage('');
         },
         (error) => {
-          alert('Error sending message:', error.text);
+          setLoading(false);
+          setError('Error occurred while sending the message.');
+          console.error(error.text);
         }
       );
   };
 
   return (
-    <div className="p-8 bg-gray-100">
-      <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full p-3 mb-4 border rounded"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full p-3 mb-4 border rounded"
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full p-3 mb-4 border rounded"
-        ></textarea>
-        <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded">
-          Send Message
+    <div className="contact-form">
+      <h2>Contact Me</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Sending...' : 'Send Message'}
         </button>
+        {success && <p className="success">{success}</p>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );
-}
+};
 
-export default Contact;
+export default ContactForm;
