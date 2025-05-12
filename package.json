@@ -2,9 +2,9 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
-  "projects": [
+  "projects": [ "EDA_GPT", 
     "Lung_Nodule_Detection_FRCNN_FPR",
-    "Rag-chat","EDA_GPT"
+    "Rag-chat"
   ],
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.13.4",
