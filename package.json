@@ -4,7 +4,7 @@
   "private": true,
   "projects": [
     "Lung_Nodule_Detection_FRCNN_FPR",
-    "Rag-chat"
+    "Rag-chat","EDA_GPT"
   ],
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.13.4",
