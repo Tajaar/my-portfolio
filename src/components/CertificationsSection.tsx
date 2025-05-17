@@ -11,7 +11,7 @@ interface Certification {
 }
 
 const certifications: Certification[] = [
-  {
+ {
     title: "IBM Data Analyst",
     issuer: "Coursera - IBM",
     date: "April 2024",

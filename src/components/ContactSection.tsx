@@ -3,11 +3,6 @@ import { Mail, MapPin, Send, Github as GitHub, Linkedin, Instagram } from 'lucid
 import AnimateOnScroll from '../utils/AnimateOnScroll';
 import Button from './Button';
 import Card from './Card';
-import emailjs from '@emailjs/browser';
-
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const USER_ID = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -28,60 +23,30 @@ const ContactSection: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    setSubmitStatus(null);
-
-    // Basic front-end validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setSubmitStatus({
-        success: false,
-        message: "Please fill out all fields before submitting."
-      });
-      return;
-    }
-
     setIsSubmitting(true);
-
+    setSubmitStatus(null);
+    
     try {
-      const currentTime = new Date().toLocaleString();
-
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          name: formData.name,
-          time: currentTime,
-          message: formData.message,
-          title: "Contact Form",
-          email: formData.email,
-        },
-        USER_ID
-      );
-
+      // Mock implementation with a timeout to simulate network request
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Simulate success
       setSubmitStatus({
         success: true,
-        message: "Thank you! Your message has been sent successfully.",
+        message: 'Thank you! Your message has been sent successfully.'
       });
-
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error: any) {
-      console.error("EmailJS error:", error);
-
-      // Try to extract message from EmailJS response if available
-      let errorMessage = "Sorry, there was an error sending your message. Please try again.";
-      if (error?.text) {
-        errorMessage += ` Details: ${error.text}`;
-      }
-
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
       setSubmitStatus({
         success: false,
-        message: errorMessage,
+        message: 'Sorry, there was an error sending your message. Please try again.'
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
 
   const contactInfo = [
     {
@@ -135,7 +100,7 @@ const ContactSection: React.FC = () => {
               <h3 className="text-2xl font-bold text-white group-hover:text-neon-gold transition-colors duration-300 mb-6">
                 Get In Touch
               </h3>
-
+              
               <div className="space-y-6 mb-8">
                 {contactInfo.map((item, index) => (
                   <div key={index} className="flex items-start group">
@@ -147,7 +112,7 @@ const ContactSection: React.FC = () => {
                   </div>
                 ))}
               </div>
-
+              
               <div>
                 <h4 className="text-lg font-semibold text-white mb-4">Connect with me</h4>
                 <div className="flex space-x-4">
@@ -185,7 +150,7 @@ const ContactSection: React.FC = () => {
                     className="w-full px-4 py-2 bg-dark-300 border border-gray-600 rounded-lg focus:ring-2 focus:ring-neon-purple focus:border-transparent text-white transition-colors duration-300"
                   />
                 </div>
-
+                
                 <div className="mb-6">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2 group-hover:text-gray-300 transition-colors duration-300">
                     Email
@@ -200,7 +165,7 @@ const ContactSection: React.FC = () => {
                     className="w-full px-4 py-2 bg-dark-300 border border-gray-600 rounded-lg focus:ring-2 focus:ring-neon-purple focus:border-transparent text-white transition-colors duration-300"
                   />
                 </div>
-
+                
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2 group-hover:text-gray-300 transition-colors duration-300">
                     Message
@@ -218,14 +183,14 @@ const ContactSection: React.FC = () => {
 
                 {submitStatus && (
                   <div className={`mb-6 p-4 rounded-lg ${
-                    submitStatus.success
-                      ? 'bg-green-900/20 text-green-400 border border-green-700'
+                    submitStatus.success 
+                      ? 'bg-green-900/20 text-green-400 border border-green-700' 
                       : 'bg-red-900/20 text-red-400 border border-red-700'
                   }`}>
                     {submitStatus.message}
                   </div>
                 )}
-
+                
                 <Button
                   type="submit"
                   variant="primary"

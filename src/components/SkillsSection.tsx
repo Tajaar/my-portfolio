@@ -35,16 +35,16 @@ const categories = ['Programming Languages', 'Frameworks & Tools', 'Data & ML Sk
 
 const SkillsSection: React.FC = () => {
   return (
-    <section id="skills" className="py-20 bg-light-100 dark:bg-dark transition-colors duration-300">
+    <section id="skills" className="py-20 bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll animation="animate-fade-in" className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             <span className="bg-gradient-to-r from-neon-purple to-neon-gold bg-clip-text text-transparent">
               Skills & Proficiency
             </span>
           </h2>
           <div className="mt-2 h-1 w-20 bg-gradient-to-r from-neon-purple to-neon-gold mx-auto"></div>
-          <p className="mt-4 text-xl text-gray-700 dark:text-gray-300">
+          <p className="mt-4 text-xl text-gray-300">
             Technical expertise and competencies
           </p>
         </AnimateOnScroll>
@@ -56,8 +56,8 @@ const SkillsSection: React.FC = () => {
               animation="animate-fade-in"
               delay={categoryIndex * 100}
             >
-              <Card className="p-6 bg-white dark:bg-dark-200">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+              <Card className="p-6 bg-dark-200">
+                <h3 className="text-xl font-semibold text-white mb-6">
                   {category}
                 </h3>
                 <div className="space-y-6">
@@ -65,11 +65,11 @@ const SkillsSection: React.FC = () => {
                     .filter(skill => skill.category === category)
                     .map((skill, index) => (
                       <div key={index} className="space-y-2">
-                        <div className="flex justify-between text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <div className="flex justify-between text-sm font-medium text-gray-300">
                           <span>{skill.name}</span>
                           <span>{skill.proficiency}%</span>
                         </div>
-                        <div className="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div className="relative h-2 bg-dark-300 rounded-full overflow-hidden">
                           <div 
                             className="absolute top-0 left-0 h-full bg-gradient-to-r from-neon-purple to-neon-gold rounded-full transition-all duration-1000 ease-out"
                             style={{ width: `${skill.proficiency}%` }}
