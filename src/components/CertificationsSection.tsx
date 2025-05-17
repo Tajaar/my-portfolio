@@ -11,7 +11,7 @@ interface Certification {
 }
 
 const certifications: Certification[] = [
- {
+  {
     title: "IBM Data Analyst",
     issuer: "Coursera - IBM",
     date: "April 2024",
@@ -33,16 +33,16 @@ const certifications: Certification[] = [
 
 const CertificationsSection: React.FC = () => {
   return (
-    <section id="certifications" className="py-20 bg-light-200 dark:bg-dark-100 transition-colors duration-300">
+    <section id="certifications" className="py-20 bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll animation="animate-fade-in" className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             <span className="bg-gradient-to-r from-neon-purple to-neon-gold bg-clip-text text-transparent">
               Certifications
             </span>
           </h2>
           <div className="mt-2 h-1 w-20 bg-gradient-to-r from-neon-purple to-neon-gold mx-auto"></div>
-          <p className="mt-4 text-xl text-gray-700 dark:text-gray-300">
+          <p className="mt-4 text-xl text-gray-300">
             Professional certifications and achievements
           </p>
         </AnimateOnScroll>
@@ -54,17 +54,17 @@ const CertificationsSection: React.FC = () => {
               animation="animate-fade-in"
               delay={index * 100}
             >
-              <Card className="p-6 group bg-white dark:bg-dark-200">
+              <Card className="p-6 group bg-dark-200">
                 <div className="flex items-start space-x-4">
                   <Award className="h-8 w-8 text-neon-purple group-hover:text-neon-gold flex-shrink-0 mt-1" />
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-neon-gold transition-colors duration-300">
+                    <h3 className="text-xl font-semibold text-white group-hover:text-neon-gold transition-colors duration-300">
                       {cert.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-gray-300 mt-1">
                       {cert.issuer}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
+                    <p className="text-sm text-gray-400 mt-1">
                       Completed {cert.date}
                     </p>
                     {cert.credentialUrl && (
@@ -72,7 +72,7 @@ const CertificationsSection: React.FC = () => {
                         href={cert.credentialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center mt-3 text-neon-purple dark:text-neon-gold hover:text-neon-purple-dark dark:hover:text-neon-gold-light transition-colors duration-300"
+                        className="inline-flex items-center mt-3 text-neon-purple hover:text-neon-gold transition-colors duration-300"
                       >
                         <span className="text-sm">View Credential</span>
                         <ExternalLink className="h-4 w-4 ml-1" />
